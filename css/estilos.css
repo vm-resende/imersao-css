@@ -1,0 +1,253 @@
+@import 'dark-mode.css';
+@import 'timeline.css';
+
+html {
+    --bg:#EBEBEB;
+    --color-headings:teal;
+    --color-text:#222222;
+    --bg-timeline: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    font-size: 12px;
+}
+
+
+@media (min-width: 600px) {
+    body {
+        background-attachment: fixed;
+        background-size: cover;
+        font-size: 16px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    background-color: var(--bg);
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 1s, color 2s;
+}
+
+.menu a:active,
+.menu a:hover {
+    background-color: var(--color-headings);
+    color: white;
+}
+
+a {
+    color: var(--color-headings);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.titulo {
+    transform: scale(0.2) translateX(0vh) translateY(100vh);
+    opacity: 0;
+    animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+    0% {
+        transform: scale(0.2) translateX(0vh) translateY(100vh);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateX(0vh) translateY(0);
+        opacity: 1;
+    }
+}
+
+.site-subtitle,
+.site-title {
+    color: var(--color-headings);
+    text-align: center;
+    transition: background-color 1s, color 2s;
+}
+
+.site-title {
+    font-family: 'Leckerli One', cursive;
+    font-size: 4em;
+}
+
+.site-subtitle {
+    font-family: 'Source Code Pro', monospace;
+    line-height: 1.8em;
+}
+
+.sobre,
+.contato,
+.portfolio {
+    padding: 2em;
+    min-height: 100vh;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        background-color: var(--bg);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+    }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+    color: var(--color-headings);
+    margin-bottom: 1.5em;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sobre p {
+    color: var(--color-text);
+    margin-bottom: 1.4em;
+    text-align: justify;
+    text-indent: 1.4em;
+}
+
+.sobre a {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+.sobre a:hover {
+    color: var(--color-headings);
+}
+
+.sobre .avatar {
+    float: right;
+    margin-left: 2em;
+}
+
+.sobre .avatar img {
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    height: 337.5px;
+    width: 270px;
+}
+
+.portfolio figure {
+    text-align: center;
+}
+
+.portfolio .grid {
+    display: grid;
+    gap: 2em;
+}
+
+@media (min-width: 560px) {
+    .portfolio .grid {
+        grid-template-columns: 240px 240px;
+    }
+}
+
+@media (min-width: 880px) {
+    .portfolio .grid {
+        grid-template-columns: repeat(3, 260px);
+        height: calc(100vh - 8em - 48px);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .img-portfolio {
+        height: 10em;
+        width: auto;
+    }
+}
+
+.img-portfolio {
+    height: 180px;
+    width: 240px;
+    object-fit: cover;
+    object-position: left bottom;
+    transition: transform 500ms;
+}
+
+.flip-card {
+    perspective: 1000px;
+    min-height: 210px;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 3s;
+}
+
+.flip-card:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    backface-visibility: hidden;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.card-back {
+    background-color: white;
+    height: 180px;
+    transform: rotateY(180deg);
+    width: 100%;
+}
+
+.contato .icons {
+    text-align: center;
+}
+
+.contato a {
+    color: var(--color-text);
+    font-size: 4em;
+    transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, .5);
+}
